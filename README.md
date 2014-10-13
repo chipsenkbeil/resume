@@ -29,5 +29,13 @@ Work
 This focuses on my work in the industry. Currently, it only contains my work
 at _IBM_ since that is the only job I have held since academia.
 
+* [Full Version](bin/work/full_resume.pdf)
+
+    * Contains technological experience (cannot disclose projects) at IBM
+
+* [Short Version](bin/work/short_resume.pdf)
+
+    * Contains technological experience (cannot disclose projects) at IBM
+
 The time period is 2014.
 
