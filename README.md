@@ -11,6 +11,16 @@ Academic
 This focuses on my years at Virginia Tech as a _computer science_ and
 _computer engineering_ dual-degree undergraduate.
 
+* [Full Version](bin/academic/full_resume.pdf)
+
+    * Contains education, work experience, course projects, undergraduate
+      research, side projects, activities, and honors
+
+* [Short Version](bin/academic/short_resume.pdf)
+
+    * Contains education, work experience, undergraduate research, and side
+      projects
+
 The time period was 2009-2013.
 
 Work
