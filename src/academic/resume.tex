@@ -1,0 +1,319 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\author{Robert C. Senkbeil}
+
+% ===========================
+% = RESUME INFORMATION      =
+% ===========================
+\newcommand{\nameemail}[2]{           % =======================================================
+    \begin{center}                    % = Command:    \nameemail                              =
+        {\bf \huge #1} \\             % = Purpose:    Displays the name and email provided    =
+        {\bf \large #2}               % =                 as arguments.                       =
+    \end{center}                      % =                                                     =
+}                                     % =   Usage:    \nameemail{name}{email}                 =
+                                      % =======================================================
+
+\newcommand{\address}[2]{             % =======================================================
+    \noindent                         % = Command:    \address                                =
+    \begin{minipage}                  % = Purpose:    Displays the current and permanent      =
+        {0.75\textwidth}              % =                 addresses in a two-column format.   =
+        \begin{flushleft}             % =                                                     =
+            {\bf Current Address:}    % =   Usage:    \address{Current}{Permanent}            =
+            \\ #1                     % =                                                     =
+        \end{flushleft}               % =                                                     =
+    \end{minipage}                    % =                                                     =
+    \hfill                            % =                                                     =
+    \begin{minipage}                  % =                                                     =
+        {0.25\textwidth}              % =                                                     =
+        \begin{flushleft}             % =                                                     =    
+            {\bf Permanent Address:}  % =                                                     =
+            \\ #2                     % =                                                     =
+        \end{flushleft}               % =                                                     =
+    \end{minipage}                    % =                                                     =
+}                                     % =======================================================
+
+\newcommand{\resumesection}[2]{       % =======================================================
+    \noindent                         % = Command:    \resumesection                          =
+    \begin{minipage}[t]               % = Purpose:    Displays the name of the section and    =
+        {0.15\textwidth}              % =                the information associated with it.  =  
+        \begin{flushleft}             % =                                                     =
+            {\bf #1}                  % =   Usage:    \resumesection{Section}{Information}    =
+        \end{flushleft}               % =                                                     =
+    \end{minipage}                    % =                                                     =
+    \hfill                            % =                                                     =
+    \begin{minipage}[t]               % =                                                     =
+        {0.85\textwidth}              % =                                                     =
+        \begin{flushleft}             % =                                                     =    
+            #2                        % =                                                     =
+        \end{flushleft}               % =                                                     =
+    \end{minipage}                    % =                                                     =
+}                                     % =======================================================
+
+\newenvironment{resumeinfo}[3]        % =======================================================
+    {\noindent {\bf #1}, #2 #3        % = Command:    \resumeinfo                             =
+     \begin{itemize}                  % = Purpose:    Displays the name in a bolded style     =
+         [noitemsep,nolistsep]}       % =                 with two additional pieces of       =
+    {\end{itemize}}                   % =                 information to the right. Also      =
+                                      % =                 allows adding a list of content     =
+                                      % =                 that will be bulleted.              =
+                                      % =                                                     =
+                                      % =   Usage:    \begin{resumeinfo}{Bold}{Text}{Text}    =
+                                      % =                 \item ...                           =
+                                      % =                 \item ...                           =
+                                      % =             \end{resumeinfo}                        =
+                                      % =======================================================
+
+\newcommand{\resumeline}[1]
+    {\noindent #1 \\}
+  
+\newenvironment{collist}
+    {\begin{multicols}{2}
+     \begin{itemize}
+         [noitemsep,nolistsep]
+     \setlength{\leftmargin}{0pt}}
+    {\end{itemize}
+     \end{multicols}}
+   
+\newcommand{\tab}{\hspace*{2em}}
+
+% ===========================
+% = START OF DOCUMENT       =
+% ===========================
+\begin{document}
+\thispagestyle{empty}
+
+% ===========================
+% = NAME & EMAIL            =
+% ===========================
+\nameemail{
+    Robert C. Senkbeil
+} {
+    rcsvt@vt.edu
+}
+
+% ===========================
+% = CURRENT ADDRESS &       =
+% = PERMANENT ADDRESS       =
+% ===========================
+\address{
+    208 Tech Village Drive Apt. J \\
+    Blacksburg, VA 24060       \\
+    (256) 283-4357
+} {
+    21 Christopher Way           \\
+    Anniston, AL 36207           \\
+    (256) 283-4357
+}
+
+% ===========================
+% = EDUCATION               =
+% ===========================
+\resumesection
+    {Education} {
+     \resumeline{Virginia Polytechnic Institute and State University, Blacksburg VA}
+     \resumeline{\hspace{1em} $\bullet$ Overall GPA of 3.83}
+     \resumeline{{\bf B.S., Computer Engineering}, expected December 2013}
+     \resumeline{\hspace{1em} $\bullet$ In-major GPA of 3.74}
+     \resumeline{{\bf B.S., Computer Science}, graduated summa cum laude, May 2013}
+     \resumeline{\hspace{1em} $\bullet$ In-major GPA of 4.0}
+    }
+
+% ===========================
+% = WORK EXPERIENCE         =
+% ===========================
+\addvspace{1em}
+\resumesection
+    {Work Experience} {
+     \begin{resumeinfo}{IBM Extreme Blue Internship}{IBM 501, RTP, NC}{Summer 2013}
+         \item Worked on cloud-based monitoring, analysis of problems on an application level,
+               and providing solutions to application-level problems.
+         \item Wrote a RESTful API with the Ruby (1.9) language.
+         \item Wrote unit tests with proper mocking of material using Ruby's MiniTest library.
+         \item Worked with the Lucene query language for unstructured data.
+         \item Wrote additional documentation using Markdown syntax.
+         \item Constructed a Ruby Gem for the product so it could be packaged and shipped quickly.
+         \item Conceptualized a unique mobile user experience to display data in an
+               uncluttered and simplistic manner.
+         \item Gained experience with pitch-oriented presentations for a product by presenting
+               to IBM vice presidents and fellows.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{CS 3114 Undergraduate TA}{Virginia Tech, Blacksburg, VA}{Spring 2013}
+         \item Aided undergraduate students with course material and assignments
+               involving advanced data structures and search algorithms, particularly using
+               the Java language.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{IBM Rational Quality Manager Co-Op}{IBM 501, RTP, NC}{Summer/Fall 2012}
+         \item Worked on Rational Quality Manager defects and enhancements written in Java.
+         \item Worked on RQM Import Tool for Microsoft Word/Excel defects and enhancements
+               written in C\#.
+         \item Gained experience with industry team communication and large-scale product development.
+         \item Worked with Rational Team Concert for source control, reporting, and task management.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{Microprocessor Platform Evaluation}{Virginia Tech, Blacksburg, VA}{Spring 2011}
+         \item Tested features and reported the pros and cons of various microprocessor boards
+               being considered as replacements for the Spartan 3E Starter Board.
+         \item Wrote hardware-oriented test code in C.
+     \end{resumeinfo}
+    }
+    
+% ===========================
+% = COURSE PROJECTS         =
+% ===========================
+\addvspace{1em}
+\resumesection
+    {Course Projects} {
+     \begin{resumeinfo}{ECE 4534: Embedded System Design}{C}{Spring 2013}
+         \item Designed and wrote code for ARM and PIC processors that interfaced with XBee
+               wireless devices, Sabretooth motor controllers, and Sharp IR sensors to navigate
+               a four-wheel rover through a maze and perform more efficiently on additional runs.
+         \item Designed APIs for communication between various hardware devices in both wired
+               and wireless conditions.
+         \item Wrote I\textsuperscript{2}C communication APIs at a bit level for PIC processors.
+         \item Designed and wrote a wireless communication state machine where packets of data
+               were bundled with a checksum and additional verification bytes used to validate
+               the contents of a packet.
+         \item Wrote timer-based sensor communication for Sharp IR sensors.
+         \item Wrote state-defending code to ensure that PIC processors remained in valid states
+               during the rover's navigation.
+         \item Video: \url{http://youtu.be/vfqsfTlCoaM}
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{CS 4104: Data and Algorithm Analysis}{Pseudo Code}{Spring 2013}
+         \item Demonstrated an understanding of dynamic programming.
+         \item Demonstrated an understanding of greedy algorithms.
+         \item Demonstrated an understanding of proving problems as NP-complete.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{CS 4644: Creative Computing Studio}{Unity}{Spring 2012}
+         \item Designed a 3D video game to be presented at the end of the semester.
+         \item Gained experience working with other majors such as art, music, and education.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{CS 4204: Computer Graphics}{C++}{Spring 2012}
+         \item Project 1: Use tree-based modeling to render a 3D robot with OpenGL.
+         \item Project 2: Demonstrate an understanding of lighting, textures, and material
+               effects with the 3D robot of project 1 using OpenGL.
+         \item Project 3: Demonstrate an understanding of keyframes, tweening algorithms, and
+               framerate locking by providing functionality to create animations with the robot
+               from project 2.
+         \item Project 4: Demonstrate an understanding of OpenGL shaders by rendering a
+               texture as a wavy surface and mapping another texture onto it using vertex and
+               fragment shaders.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{CS 3214: Introduction to Computer Systems}{ASM \& C}{Spring 2012}
+         \item Gained experience stepping through assembly and understanding how C
+               translates to it and vice versa.
+         \item Gained experience with shell development by creating a generic shell capable of
+               managing jobs, providing builtin commands, and providing extra commands
+               through custom plugins.
+         \item Gained experience with memory handling by designing malloc, realloc, and free
+               functions.
+         \item Gained experience with threading by designing a thread pool.
+         \item Gained experience with HTTP servers by writing a simple server capable of file
+               serving and running some information-retrieving processes and replying to
+               requests in HTTP 1.0/1.1.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{CS 3114: Data Structures \& Algorithms 2}{Java}{Fall 2011}
+         \item Project 1: Virtual buffer pool to simulate memory insertion, deletion, and sorting.
+         \item Project 2: Quad tree written to provide spacial sorting for geographic locations.
+         \item Project 3: External sorting using an external heapsort.
+         \item Project 4: Sorting geographic information using external sorting of quad trees and
+               BSTs using a buffer pool to maintain changes to write back to files.
+     \end{resumeinfo}
+    }
+
+% ===========================
+% = UNDERGRADUATE RESEARCH  =
+% ===========================
+\addvspace{1em}
+\resumesection
+    {Undergrad Research} {
+     \begin{resumeinfo}{Auburn Unmanned Aerial Vehicle Research}{Auburn, AL}{Summer 2011}
+         \item Researched various collision avoidance algorithms and determined possible ways they could be
+               applied to real-time UAV flight.
+         \item Assembled auto-pilot boards to be integrated with UAVs.
+         \item Implemented a physics-inspired algorithm in C++ to work with the ROS Framework used by 
+               the UAVs.
+         \item Won competition between three teams for best algorithm performance.
+     \end{resumeinfo}
+     \addvspace{1em}
+     \begin{resumeinfo}{Web-CAT Javassist Research}{Virginia Tech, Blacksburg, VA}{Fall 2010}
+         \item Researched ways of using Javassist libraries to dynamically alter bytecode when loading
+               class files.
+         \item Used Javassist libraries to alter student-written test cases to use reflective-based
+               libraries.
+     \end{resumeinfo}
+    }
+    
+% ===========================
+% = SIDE PROJECTS           =
+% ===========================
+\addvspace{1em}
+\resumesection
+    {Side Projects} {
+     \begin{resumeinfo}{ACM Website}{HTML 5, CSS 3, Javascript, Markdown, Eco}{Fall 2013}
+         \item Wrote base ACM website for Virginia Tech during a weekend.
+         \item Used semantic HTML 5 and CSS 3 (rounded borders).
+         \item Wrote Javascript to integrate with Google's Calendar through a REST API
+               and update the page using AJAX techniques.
+         \item Statically templated the website using Docpad and languages like Markdown
+               and Eco (embed Coffeescript logic in your markup).
+     \end{resumeinfo}
+    }  
+
+% ===========================
+% = ACTIVITIES              =
+% ===========================
+\addvspace{1em}
+\resumesection
+    {Activities} {
+     \resumeline{Autonomous Mastery Prototyping Lab, 2013 \\
+         \tab (Meeting Leader, 2013)}
+     \resumeline{Virginia Tech Gaming Project, 2010 – 2013 \\
+         \tab (President, 2011 – 2012), (Vice-President, 2010 – 2011)}
+     \resumeline{Association for Computing Machinery, 2009 – 2013 \\
+         \tab (President, 2013), (Webmaster, 2011 – 2013)}
+     \resumeline{Institute of Electrical and Electronics Engineers, 2010 – 2013}
+     \resumeline{Big Event Participant, 2012 – 2013}
+     \resumeline{Hokie Camp Counselor, Summer 2010}
+    }
+
+% ===========================
+% = HONORS                  =
+% ===========================
+\vspace{-0.5em}
+\addvspace{1em}
+\resumesection
+    {Honors} {
+     \resumeline{Phi Beta Kappa, 2013}
+     \resumeline{Upsilon Pi Epsilon, 2012 – 2013}
+     \resumeline{Tau Beta Pi, 2010 – 2013}
+     \resumeline{Juanarena Scholarship, 2010 – 2011}
+     \resumeline{Eta Kappa Nu Electrical and Computer Engineering Honor Society, 2010 – 2013 \\
+         \tab (Webmaster, 2010 – 2012), (IEEE Representative, 2010 – 2011), \\
+         \tab (Recruitment Officer, 2011 – 2012), (Service Chair, 2011 – 2012)}
+     \resumeline{Phi Kappa Phi, 2011 – 2013}
+     \resumeline{Golden Key, 2010 – 2013}
+     \resumeline{National Society of Collegiate Scholars, 2010 – 2013}
+     \resumeline{University Honors Program, 2009 – 2013}
+     \resumeline{Dean’s List with Distinction, Spring 2010, Fall 2010, Fall 2011, Spring 2012}
+     \resumeline{Dean’s List, Fall 2009, Spring 2011, Spring 2013}\vspace{-2em}
+    }
+
+% ===========================
+% = END OF DOCUMENT         =
+% ===========================
+\end{document}
