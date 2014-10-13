@@ -1,7 +1,13 @@
+% =============================================================================
+% = CHIP SENKBEIL'S RESUME
+% =
+% = Started in June, 2011.
+% =============================================================================
 \documentclass[10pt,a4paper]{article}
 \usepackage{fullpage}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{etoolbox}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
@@ -13,64 +19,97 @@
 % ===========================
 % = RESUME INFORMATION      =
 % ===========================
-\newcommand{\nameemail}[2]{           % =======================================================
-    \begin{center}                    % = Command:    \nameemail                              =
-        {\bf \huge #1} \\             % = Purpose:    Displays the name and email provided    =
-        {\bf \large #2}               % =                 as arguments.                       =
-    \end{center}                      % =                                                     =
-}                                     % =   Usage:    \nameemail{name}{email}                 =
-                                      % =======================================================
 
-\newcommand{\address}[2]{             % =======================================================
-    \noindent                         % = Command:    \address                                =
-    \begin{minipage}                  % = Purpose:    Displays the current and permanent      =
-        {0.75\textwidth}              % =                 addresses in a two-column format.   =
-        \begin{flushleft}             % =                                                     =
-            {\bf Current Address:}    % =   Usage:    \address{Current}{Permanent}            =
-            \\ #1                     % =                                                     =
-        \end{flushleft}               % =                                                     =
-    \end{minipage}                    % =                                                     =
-    \hfill                            % =                                                     =
-    \begin{minipage}                  % =                                                     =
-        {0.25\textwidth}              % =                                                     =
-        \begin{flushleft}             % =                                                     =    
-            {\bf Permanent Address:}  % =                                                     =
-            \\ #2                     % =                                                     =
-        \end{flushleft}               % =                                                     =
-    \end{minipage}                    % =                                                     =
-}                                     % =======================================================
+% =============================================================================
+% = Command:    \nameemail                              
+% = Purpose:    Displays the name and email provided    
+% =                 as arguments.                       
+% =                                                     
+% =   Usage:    \nameemail{name}{email}                 
+% =============================================================================
+\newtoggle{onepage}
+\newcommand{\nameemail}[2]{             
+    \begin{center}                      
+        {\bf \huge #1} \\               
+        {\bf \large #2}                 
+    \end{center}                        
+}
+                                       
+% =============================================================================
+% = Command:    \address                                
+% = Purpose:    Displays the current and permanent      
+% =                 addresses in a two-column format.   
+% =                                                     
+% =   Usage:    \address{Current}{Permanent}            
+% =============================================================================
+\newcommand{\address}[2]{               
+    \noindent                           
+    \begin{minipage}                    
+        {0.75\textwidth}                
+        \begin{flushleft}               
+            {\bf Current Address:}      
+            \\ #1                       
+        \end{flushleft}                 
+    \end{minipage}                      
+    \hfill                              
+    \begin{minipage}                    
+        {0.25\textwidth}                
+        \begin{flushleft}               
+            {\bf Permanent Address:}    
+            \\ #2                       
+        \end{flushleft}                 
+    \end{minipage}                      
+}
 
-\newcommand{\resumesection}[2]{       % =======================================================
-    \noindent                         % = Command:    \resumesection                          =
-    \begin{minipage}[t]               % = Purpose:    Displays the name of the section and    =
-        {0.15\textwidth}              % =                the information associated with it.  =  
-        \begin{flushleft}             % =                                                     =
-            {\bf #1}                  % =   Usage:    \resumesection{Section}{Information}    =
-        \end{flushleft}               % =                                                     =
-    \end{minipage}                    % =                                                     =
-    \hfill                            % =                                                     =
-    \begin{minipage}[t]               % =                                                     =
-        {0.85\textwidth}              % =                                                     =
-        \begin{flushleft}             % =                                                     =    
-            #2                        % =                                                     =
-        \end{flushleft}               % =                                                     =
-    \end{minipage}                    % =                                                     =
-}                                     % =======================================================
+% =============================================================================
+% = Command:    \resumesection                          
+% = Purpose:    Displays the name of the section and
+% =                the information associated with it.  
+% =                                                     
+% =   Usage:    \resumesection{Section}{Information}    
+% =============================================================================
+\newcommand{\resumesection}[3]{
+    \providebool{alwaysInclude}
+    \setbool{alwaysInclude}{#1}
+    % Only display if enabled for onepage or onepage is false
+    \ifboolexpr{togl {onepage} and bool {alwaysInclude} or not togl {onepage}}{
+        \noindent                           
+        \begin{minipage}[t]                 
+            {0.15\textwidth}                  
+            \begin{flushleft}               
+                {\bf #2}                    
+            \end{flushleft}                 
+        \end{minipage}                      
+        \hfill                              
+        \begin{minipage}[t]                 
+            {0.85\textwidth}                
+            \begin{flushleft}               
+                #3                          
+            \end{flushleft}                 
+        \end{minipage}                      
+    }{}
+}                                       
 
-\newenvironment{resumeinfo}[3]        % =======================================================
-    {\noindent {\bf #1}, #2 #3        % = Command:    \resumeinfo                             =
-     \begin{itemize}                  % = Purpose:    Displays the name in a bolded style     =
-         [noitemsep,nolistsep]}       % =                 with two additional pieces of       =
-    {\end{itemize}}                   % =                 information to the right. Also      =
-                                      % =                 allows adding a list of content     =
-                                      % =                 that will be bulleted.              =
-                                      % =                                                     =
-                                      % =   Usage:    \begin{resumeinfo}{Bold}{Text}{Text}    =
-                                      % =                 \item ...                           =
-                                      % =                 \item ...                           =
-                                      % =             \end{resumeinfo}                        =
-                                      % =======================================================
-
+% =============================================================================
+% = Command:    \resumeinfo
+% = Purpose:    Displays the name in a bolded style
+% =                 with two additional pieces of
+% =                 information to the right. Also
+% =                 allows adding a list of content
+% =                 that will be bulleted.
+% =
+% =   Usage:    \begin{resumeinfo}{Bold}{Text}{Text}
+% =                 \item ...
+% =                 \item ...
+% =             \end{resumeinfo}
+% =============================================================================
+\newenvironment{resumeinfo}[3]
+    {\noindent {\bf #1}, #2 #3        
+     \begin{itemize}                  
+         [noitemsep,nolistsep]}       
+    {\end{itemize}}                   
+                                      
+                                      
 \newcommand{\resumeline}[1]
     {\noindent #1 \\}
   
@@ -88,6 +127,7 @@
 % = START OF DOCUMENT       =
 % ===========================
 \begin{document}
+%\toggletrue{onepage}
 \thispagestyle{empty}
 
 % ===========================
@@ -104,24 +144,26 @@
 % = PERMANENT ADDRESS       =
 % ===========================
 \address{
-    208 Tech Village Drive Apt. J \\
-    Blacksburg, VA 24060       \\
+    10300 Jollyville Rd.            \\
+    Apt. 1111                       \\
+    Austin, TX 78759                \\
     (256) 283-4357
 } {
-    21 Christopher Way           \\
-    Anniston, AL 36207           \\
+    10300 Jollyville Rd.            \\
+    Apt. 1111                       \\
+    Austin, TX 78759                \\
     (256) 283-4357
 }
 
 % ===========================
 % = EDUCATION               =
 % ===========================
-\resumesection
+\resumesection{true}
     {Education} {
      \resumeline{Virginia Polytechnic Institute and State University, Blacksburg VA}
-     \resumeline{\hspace{1em} $\bullet$ Overall GPA of 3.83}
-     \resumeline{{\bf B.S., Computer Engineering}, expected December 2013}
-     \resumeline{\hspace{1em} $\bullet$ In-major GPA of 3.74}
+     \resumeline{\hspace{1em} $\bullet$ Overall GPA of 3.80}
+     \resumeline{{\bf B.S., Computer Engineering}, graduated summa cum laude, December 2013}
+     \resumeline{\hspace{1em} $\bullet$ In-major GPA of 3.78}
      \resumeline{{\bf B.S., Computer Science}, graduated summa cum laude, May 2013}
      \resumeline{\hspace{1em} $\bullet$ In-major GPA of 4.0}
     }
@@ -130,7 +172,7 @@
 % = WORK EXPERIENCE         =
 % ===========================
 \addvspace{1em}
-\resumesection
+\resumesection{true}
     {Work Experience} {
      \begin{resumeinfo}{IBM Extreme Blue Internship}{IBM 501, RTP, NC}{Summer 2013}
          \item Worked on cloud-based monitoring, analysis of problems on an application level,
@@ -171,7 +213,7 @@
 % = COURSE PROJECTS         =
 % ===========================
 \addvspace{1em}
-\resumesection
+\resumesection{false}
     {Course Projects} {
      \begin{resumeinfo}{ECE 4534: Embedded System Design}{C}{Spring 2013}
          \item Designed and wrote code for ARM and PIC processors that interfaced with XBee
@@ -239,7 +281,7 @@
 % = UNDERGRADUATE RESEARCH  =
 % ===========================
 \addvspace{1em}
-\resumesection
+\resumesection{true}
     {Undergrad Research} {
      \begin{resumeinfo}{Auburn Unmanned Aerial Vehicle Research}{Auburn, AL}{Summer 2011}
          \item Researched various collision avoidance algorithms and determined possible ways they could be
@@ -262,7 +304,7 @@
 % = SIDE PROJECTS           =
 % ===========================
 \addvspace{1em}
-\resumesection
+\resumesection{true}
     {Side Projects} {
      \begin{resumeinfo}{ACM Website}{HTML 5, CSS 3, Javascript, Markdown, Eco}{Fall 2013}
          \item Wrote base ACM website for Virginia Tech during a weekend.
@@ -278,7 +320,7 @@
 % = ACTIVITIES              =
 % ===========================
 \addvspace{1em}
-\resumesection
+\resumesection{false}
     {Activities} {
      \resumeline{Autonomous Mastery Prototyping Lab, 2013 \\
          \tab (Meeting Leader, 2013)}
@@ -296,7 +338,7 @@
 % ===========================
 \vspace{-0.5em}
 \addvspace{1em}
-\resumesection
+\resumesection{false}
     {Honors} {
      \resumeline{Phi Beta Kappa, 2013}
      \resumeline{Upsilon Pi Epsilon, 2012 – 2013}
@@ -310,7 +352,7 @@
      \resumeline{National Society of Collegiate Scholars, 2010 – 2013}
      \resumeline{University Honors Program, 2009 – 2013}
      \resumeline{Dean’s List with Distinction, Spring 2010, Fall 2010, Fall 2011, Spring 2012}
-     \resumeline{Dean’s List, Fall 2009, Spring 2011, Spring 2013}\vspace{-2em}
+     \resumeline{Dean’s List, Fall 2009, Spring 2011, Spring 2013, Fall 2013}\vspace{-2em}
     }
 
 % ===========================
