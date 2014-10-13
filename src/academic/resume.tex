@@ -19,6 +19,8 @@
 % ===========================
 % = RESUME INFORMATION      =
 % ===========================
+\newtoggle{short} % Shortens document by removing resume sections marked false
+%\toggletrue{short}
 
 % =============================================================================
 % = Command:    \nameemail                              
@@ -27,7 +29,6 @@
 % =                                                     
 % =   Usage:    \nameemail{name}{email}                 
 % =============================================================================
-\newtoggle{onepage}
 \newcommand{\nameemail}[2]{             
     \begin{center}                      
         {\bf \huge #1} \\               
@@ -71,8 +72,8 @@
 \newcommand{\resumesection}[3]{
     \providebool{alwaysInclude}
     \setbool{alwaysInclude}{#1}
-    % Only display if enabled for onepage or onepage is false
-    \ifboolexpr{togl {onepage} and bool {alwaysInclude} or not togl {onepage}}{
+    % Only display if enabled for short or short is false
+    \ifboolexpr{togl {short} and bool {alwaysInclude} or not togl {short}}{
         \noindent                           
         \begin{minipage}[t]                 
             {0.15\textwidth}                  
@@ -127,7 +128,6 @@
 % = START OF DOCUMENT       =
 % ===========================
 \begin{document}
-%\toggletrue{onepage}
 \thispagestyle{empty}
 
 % ===========================
