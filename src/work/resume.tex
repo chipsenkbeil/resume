@@ -1,0 +1,116 @@
+% =============================================================================
+% = CHIP SENKBEIL'S WORK RESUME
+% =
+% = Started in October, 2014.
+% =============================================================================
+\documentclass[10pt,a4paper]{article}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\author{Robert C. Senkbeil}
+
+% =============================================================================
+% = INCLUDE CUSTOM MACROS
+% =============================================================================
+\input{../util/resume_helper}
+\toggletrue{short} % Uncomment to create a shortened version of your resume
+
+% =============================================================================
+% = START OF DOCUMENT
+% =============================================================================
+\begin{document}
+\thispagestyle{empty}
+
+% =============================================================================
+% = NAME & EMAIL
+% =============================================================================
+\nameemail{
+    Robert C. Senkbeil
+} {
+    chip.senkbeil@gmail.com
+}
+
+% =============================================================================
+% = CURRENT ADDRESS & PERMANENT ADDRESS
+% =============================================================================
+\address{
+    10300 Jollyville Rd.            \\
+    Apt. 1111                       \\
+    Austin, TX 78759                \\
+    (256) 283-4357
+} {
+    10300 Jollyville Rd.            \\
+    Apt. 1111                       \\
+    Austin, TX 78759                \\
+    (256) 283-4357
+}
+
+% =============================================================================
+% = WORK EXPERIENCE
+% =============================================================================
+\addvspace{1em}
+\resumesection{true}{IBM - Emerging Technology}{
+    \begin{resumeinfo}{Scala \& Spark}{Austin, TX}{July, 2014 - Present}
+        \item \textbf{
+            \href{https://issues.apache.org/jira/browse/SPARK-3256}{SPARK-3256}
+        } - Developed and contributed fix to Apache Spark involving dynamically
+        loading libraries into the Spark shell (a Scala REPL wrapper) without
+        needing to restart the interpreter
+
+        \item Explored core, streaming, and SQL aspects of Apache Spark in a
+        distributed environment with large datasets
+
+        \item Gained experience working with \textit{Akka} for asynchronous
+        and distributed application development
+
+        \item Utilized \textit{Scalatest} framework for isolated unit testing
+        and integration testing in a TDD (test first) manner
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{Docker}{Austin, TX}{January, 2014 - Present}
+        \item Wrote Dockerfiles for a variety of situations including Postgres
+        databases, Ruby web applications, and Scala applications
+
+        \item Demonstrated to an internal audience the ability to run graphical
+        applications (vim, IntelliJ, Firefox) through Docker, including 
+        remotely connecting to those applications for a 
+        \textit{pair programming} experience
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{Ruby \& SoftLayer}{Austin, TX}{April, 2014 - July, 2014}
+        \item Implemented layer on top of \textit{SoftLayer} API to bring up
+        and tear down virtual instances
+
+        \item Wrote \textit{Ruby} application utilizing \textit{Rails} for
+        \textit{RESTful} web services
+
+        \item Wrote \textit{Javascript}, \textit{HTML5}, and \textit{CSS3} for
+        responsive web frontend utilizing Ruby templating to connect to Ruby 
+        web service
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{NodeJS \& Python}{Austin, TX}{January, 2014 - March, 2014}
+        \item Wrote \textit{NodeJS} application utilizing \textit{Express} for 
+        \textit{RESTful} web services
+
+        \item Wrote \textit{Javascript}, \textit{HTML5}, and \textit{CSS3} for
+        responsive web frontend utilizing built-in templating engines provided
+        through Express to connect to the web services
+
+        \item Wrote \textit{Python 2} application utilizing \textit{Flask} for
+        \textit{RESTful} endpoints and \textit{scikit-learn} for simplisitic
+        machine learning using binary linear regressions and clustering 
+        (k-means)
+    \end{resumeinfo}
+}
+    
+% =============================================================================
+% = END OF DOCUMENT
+% =============================================================================
+\end{document}
