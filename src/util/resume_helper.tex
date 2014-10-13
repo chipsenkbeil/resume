@@ -1,0 +1,108 @@
+% Requires etoolbox for "shortened" version
+\usepackage{etoolbox}
+
+% Provides a global toggle called "short" to enable/disable shortened version
+\newtoggle{short} % Shortens document by removing resume sections marked false
+
+% =============================================================================
+% = Command:    \nameemail                              
+% = Purpose:    Displays the name and email provided    
+% =                 as arguments.                       
+% =                                                     
+% =   Usage:    \nameemail{name}{email}                 
+% =============================================================================
+\newcommand{\nameemail}[2]{             
+    \begin{center}                      
+        {\bf \huge #1} \\               
+        {\bf \large #2}                 
+    \end{center}                        
+}
+                                       
+% =============================================================================
+% = Command:    \address                                
+% = Purpose:    Displays the current and permanent      
+% =                 addresses in a two-column format.   
+% =                                                     
+% =   Usage:    \address{Current}{Permanent}            
+% =============================================================================
+\newcommand{\address}[2]{               
+    \noindent                           
+    \begin{minipage}                    
+        {0.75\textwidth}                
+        \begin{flushleft}               
+            {\bf Current Address:}      
+            \\ #1                       
+        \end{flushleft}                 
+    \end{minipage}                      
+    \hfill                              
+    \begin{minipage}                    
+        {0.25\textwidth}                
+        \begin{flushleft}               
+            {\bf Permanent Address:}    
+            \\ #2                       
+        \end{flushleft}                 
+    \end{minipage}                      
+}
+
+% =============================================================================
+% = Command:    \resumesection                          
+% = Purpose:    Displays the name of the section and
+% =                the information associated with it.  
+% =                                                     
+% =   Usage:    \resumesection{Section}{Information}    
+% =============================================================================
+\newcommand{\resumesection}[3]{
+    \providebool{alwaysInclude}
+    \setbool{alwaysInclude}{#1}
+    % Only display if enabled for short or short is false
+    \ifboolexpr{togl {short} and bool {alwaysInclude} or not togl {short}}{
+        \noindent                           
+        \begin{minipage}[t]                 
+            {0.15\textwidth}                  
+            \begin{flushleft}               
+                {\bf #2}                    
+            \end{flushleft}                 
+        \end{minipage}                      
+        \hfill                              
+        \begin{minipage}[t]                 
+            {0.85\textwidth}                
+            \begin{flushleft}               
+                #3                          
+            \end{flushleft}                 
+        \end{minipage}                      
+    }{}
+}                                       
+
+% =============================================================================
+% = Command:    \resumeinfo
+% = Purpose:    Displays the name in a bolded style
+% =                 with two additional pieces of
+% =                 information to the right. Also
+% =                 allows adding a list of content
+% =                 that will be bulleted.
+% =
+% =   Usage:    \begin{resumeinfo}{Bold}{Text}{Text}
+% =                 \item ...
+% =                 \item ...
+% =             \end{resumeinfo}
+% =============================================================================
+\newenvironment{resumeinfo}[3]
+    {\noindent {\bf #1}, #2 #3        
+     \begin{itemize}                  
+         [noitemsep,nolistsep]}       
+    {\end{itemize}}                   
+                                      
+                                      
+\newcommand{\resumeline}[1]
+    {\noindent #1 \\}
+  
+\newenvironment{collist}
+    {\begin{multicols}{2}
+     \begin{itemize}
+         [noitemsep,nolistsep]
+     \setlength{\leftmargin}{0pt}}
+    {\end{itemize}
+     \end{multicols}}
+   
+\newcommand{\tab}{\hspace*{2em}}
+

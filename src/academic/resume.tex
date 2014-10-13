@@ -7,7 +7,6 @@
 \usepackage{fullpage}
 \usepackage{multicol}
 \usepackage{enumitem}
-\usepackage{etoolbox}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
@@ -16,133 +15,30 @@
 \usepackage{hyperref}
 \author{Robert C. Senkbeil}
 
-% ===========================
-% = RESUME INFORMATION      =
-% ===========================
-\newtoggle{short} % Shortens document by removing resume sections marked false
-%\toggletrue{short}
+% =============================================================================
+% = INCLUDE CUSTOM MACROS
+% =============================================================================
+\input{../util/resume_helper}
+%\toggletrue{short} % Uncomment to create a shortened version of your resume
 
 % =============================================================================
-% = Command:    \nameemail                              
-% = Purpose:    Displays the name and email provided    
-% =                 as arguments.                       
-% =                                                     
-% =   Usage:    \nameemail{name}{email}                 
+% = START OF DOCUMENT
 % =============================================================================
-\newcommand{\nameemail}[2]{             
-    \begin{center}                      
-        {\bf \huge #1} \\               
-        {\bf \large #2}                 
-    \end{center}                        
-}
-                                       
-% =============================================================================
-% = Command:    \address                                
-% = Purpose:    Displays the current and permanent      
-% =                 addresses in a two-column format.   
-% =                                                     
-% =   Usage:    \address{Current}{Permanent}            
-% =============================================================================
-\newcommand{\address}[2]{               
-    \noindent                           
-    \begin{minipage}                    
-        {0.75\textwidth}                
-        \begin{flushleft}               
-            {\bf Current Address:}      
-            \\ #1                       
-        \end{flushleft}                 
-    \end{minipage}                      
-    \hfill                              
-    \begin{minipage}                    
-        {0.25\textwidth}                
-        \begin{flushleft}               
-            {\bf Permanent Address:}    
-            \\ #2                       
-        \end{flushleft}                 
-    \end{minipage}                      
-}
-
-% =============================================================================
-% = Command:    \resumesection                          
-% = Purpose:    Displays the name of the section and
-% =                the information associated with it.  
-% =                                                     
-% =   Usage:    \resumesection{Section}{Information}    
-% =============================================================================
-\newcommand{\resumesection}[3]{
-    \providebool{alwaysInclude}
-    \setbool{alwaysInclude}{#1}
-    % Only display if enabled for short or short is false
-    \ifboolexpr{togl {short} and bool {alwaysInclude} or not togl {short}}{
-        \noindent                           
-        \begin{minipage}[t]                 
-            {0.15\textwidth}                  
-            \begin{flushleft}               
-                {\bf #2}                    
-            \end{flushleft}                 
-        \end{minipage}                      
-        \hfill                              
-        \begin{minipage}[t]                 
-            {0.85\textwidth}                
-            \begin{flushleft}               
-                #3                          
-            \end{flushleft}                 
-        \end{minipage}                      
-    }{}
-}                                       
-
-% =============================================================================
-% = Command:    \resumeinfo
-% = Purpose:    Displays the name in a bolded style
-% =                 with two additional pieces of
-% =                 information to the right. Also
-% =                 allows adding a list of content
-% =                 that will be bulleted.
-% =
-% =   Usage:    \begin{resumeinfo}{Bold}{Text}{Text}
-% =                 \item ...
-% =                 \item ...
-% =             \end{resumeinfo}
-% =============================================================================
-\newenvironment{resumeinfo}[3]
-    {\noindent {\bf #1}, #2 #3        
-     \begin{itemize}                  
-         [noitemsep,nolistsep]}       
-    {\end{itemize}}                   
-                                      
-                                      
-\newcommand{\resumeline}[1]
-    {\noindent #1 \\}
-  
-\newenvironment{collist}
-    {\begin{multicols}{2}
-     \begin{itemize}
-         [noitemsep,nolistsep]
-     \setlength{\leftmargin}{0pt}}
-    {\end{itemize}
-     \end{multicols}}
-   
-\newcommand{\tab}{\hspace*{2em}}
-
-% ===========================
-% = START OF DOCUMENT       =
-% ===========================
 \begin{document}
 \thispagestyle{empty}
 
-% ===========================
-% = NAME & EMAIL            =
-% ===========================
+% =============================================================================
+% = NAME & EMAIL
+% =============================================================================
 \nameemail{
     Robert C. Senkbeil
 } {
     rcsvt@vt.edu
 }
 
-% ===========================
-% = CURRENT ADDRESS &       =
-% = PERMANENT ADDRESS       =
-% ===========================
+% =============================================================================
+% = CURRENT ADDRESS & PERMANENT ADDRESS
+% =============================================================================
 \address{
     10300 Jollyville Rd.            \\
     Apt. 1111                       \\
@@ -155,9 +51,9 @@
     (256) 283-4357
 }
 
-% ===========================
-% = EDUCATION               =
-% ===========================
+% =============================================================================
+% = EDUCATION
+% =============================================================================
 \resumesection{true}
     {Education} {
      \resumeline{Virginia Polytechnic Institute and State University, Blacksburg VA}
@@ -168,9 +64,9 @@
      \resumeline{\hspace{1em} $\bullet$ In-major GPA of 4.0}
     }
 
-% ===========================
-% = WORK EXPERIENCE         =
-% ===========================
+% =============================================================================
+% = WORK EXPERIENCE
+% =============================================================================
 \addvspace{1em}
 \resumesection{true}
     {Work Experience} {
@@ -209,9 +105,9 @@
      \end{resumeinfo}
     }
     
-% ===========================
-% = COURSE PROJECTS         =
-% ===========================
+% =============================================================================
+% = COURSE PROJECTS
+% =============================================================================
 \addvspace{1em}
 \resumesection{false}
     {Course Projects} {
@@ -277,9 +173,9 @@
      \end{resumeinfo}
     }
 
-% ===========================
-% = UNDERGRADUATE RESEARCH  =
-% ===========================
+% =============================================================================
+% = UNDERGRADUATE RESEARCH
+% =============================================================================
 \addvspace{1em}
 \resumesection{true}
     {Undergrad Research} {
@@ -300,9 +196,9 @@
      \end{resumeinfo}
     }
     
-% ===========================
-% = SIDE PROJECTS           =
-% ===========================
+% =============================================================================
+% = SIDE PROJECTS
+% =============================================================================
 \addvspace{1em}
 \resumesection{true}
     {Side Projects} {
@@ -316,9 +212,9 @@
      \end{resumeinfo}
     }  
 
-% ===========================
-% = ACTIVITIES              =
-% ===========================
+% =============================================================================
+% = ACTIVITIES
+% =============================================================================
 \addvspace{1em}
 \resumesection{false}
     {Activities} {
@@ -333,9 +229,9 @@
      \resumeline{Hokie Camp Counselor, Summer 2010}
     }
 
-% ===========================
-% = HONORS                  =
-% ===========================
+% =============================================================================
+% = HONORS
+% =============================================================================
 \vspace{-0.5em}
 \addvspace{1em}
 \resumesection{false}
@@ -355,7 +251,7 @@
      \resumeline{Dean’s List, Fall 2009, Spring 2011, Spring 2013, Fall 2013}\vspace{-2em}
     }
 
-% ===========================
-% = END OF DOCUMENT         =
-% ===========================
+% =============================================================================
+% = END OF DOCUMENT
+% =============================================================================
 \end{document}
