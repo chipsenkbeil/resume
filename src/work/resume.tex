@@ -58,6 +58,23 @@
 \resumesection{true}{IBM - Emerging Technology}{
     \begin{resumeinfo}{Scala \& Spark}{Austin, TX}{July, 2014 - Present}
         \item \textbf{
+            \href{https://github.com/ibm-et/spark-kernel}{Spark Kernel}        
+        } - maintainer of IBM Spark Kernel
+        \begin{itemize}
+            \item Co-architect for kernel structure using akka
+            \item Implemented thread grouping mechanism to capture and redirect
+            JVM output based on where content was executed (user/kernel)
+            \item Developed Comm API interface for more detailed communication
+            \item Developed initial magic plugin interface for IPython-like 
+            magics
+        \end{itemize}
+        
+        \item \textbf{
+            \href{https://issues.apache.org/jira/browse/SPARK-4923}{SPARK-4923}        
+        } - Updated Spark REPL API to only expose necessary methods (based on 
+        experience) and wrote Scaladocs for all public API methods
+    
+        \item \textbf{
             \href{https://issues.apache.org/jira/browse/SPARK-3256}{SPARK-3256}
         } - Developed and contributed fix to Apache Spark involving dynamically
         loading libraries into the Spark shell (a Scala REPL wrapper) without

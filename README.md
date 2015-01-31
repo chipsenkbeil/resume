@@ -37,5 +37,5 @@ at _IBM_ since that is the only job I have held since academia.
 
     * Contains technological experience (cannot disclose projects) at IBM
 
-The time period is 2014.
+The time period is 2014-present.
 
