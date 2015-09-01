@@ -1,6 +1,9 @@
 % Requires etoolbox for "shortened" version
 \usepackage{etoolbox}
 
+% Requires multicol to align content
+\usepackage{multicol}
+
 % Provides a global toggle called "short" to enable/disable shortened version
 \newtoggle{short} % Shortens document by removing resume sections marked false
 
@@ -56,14 +59,14 @@
     \setbool{alwaysInclude}{#1}
     % Only display if enabled for short or short is false
     \ifboolexpr{togl {short} and bool {alwaysInclude} or not togl {short}}{
-        \noindent                           
+        \noindent                       
         \begin{minipage}[t]                 
             {0.15\textwidth}                  
             \begin{flushleft}               
                 {\bf #2}                    
             \end{flushleft}                 
         \end{minipage}                      
-        \hfill                              
+        \hfill 
         \begin{minipage}[t]                 
             {0.85\textwidth}                
             \begin{flushleft}               
