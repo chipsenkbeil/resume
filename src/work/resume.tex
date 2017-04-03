@@ -56,14 +56,27 @@
 % =============================================================================
 \addvspace{1em}
 \resumesection{true}{IBM - Emerging Technology}{
-    \begin{resumeinfo}{Browser Javascript \& NodeJS}{Austin, TX}{August 2015 - Present}
+    \begin{resumeinfo}{Conversational Computing V2}{Austin, TX}{August 2016 - Present}
+        \item Guided and assigned issues to several backend team members regarding
+        feature enhancements and bug fixes
+        \item Wrote model abstraction to provide query and storage layers for
+        Cloudant, CouchDB, Redis, and in-memory databases
+        \item Implemented chatbot architecture and integration for \textit{Slack} 
+        and \textit{Skype}
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{Conversational Computing V1}{Austin, TX}{August 2015 - July 2016}
+        \item Wrote integration with \textit{Watson} services for speech-to-text
+        and text-to-speech to recognize vocal commands and read out results
         \item Designed and implemented \textit{Polymer} components to handle 
         text-to-speech and speech-to-text functionality
         \item Created full stack to interactively display Material-inspired
         cards based on user interaction via speech
+        \item Architected message queue system to provide a \textit{pub/sub}
+        model for asynchronous voice commands and results
     \end{resumeinfo}
     \addvspace{1em}
-    \begin{resumeinfo}{Scala \& Spark}{Austin, TX}{July, 2014 - July 2015}
+    \begin{resumeinfo}{Ignition/Nitro}{Austin, TX}{July, 2014 - July 2015}
         \item \textbf{
             \href{https://github.com/ibm-et/spark-kernel}{Spark Kernel}        
         } - maintainer of IBM Spark Kernel
@@ -97,19 +110,9 @@
         and integration testing in a TDD (test first) manner
     \end{resumeinfo}
     \addvspace{1em}
-    \begin{resumeinfo}{Docker}{Austin, TX}{January, 2014 - Present}
-        \item Wrote Dockerfiles for a variety of situations including Postgres
-        databases, Ruby web applications, and Scala applications
-
-        \item Demonstrated to an internal audience the ability to run graphical
-        applications (vim, IntelliJ, Firefox) through Docker, including 
-        remotely connecting to those applications for a 
-        \textit{pair programming} experience
-    \end{resumeinfo}
-    \addvspace{1em}
-    \begin{resumeinfo}{Ruby \& SoftLayer}{Austin, TX}{April, 2014 - July, 2014}
+    \begin{resumeinfo}{Spark Cluster Management}{Austin, TX}{April, 2014 - July, 2014}
         \item Implemented layer on top of \textit{SoftLayer} API to bring up
-        and tear down virtual instances
+        and tear down virtual instances running \textit{Apache Spark} standalone mode
 
         \item Wrote \textit{Ruby} application utilizing \textit{Rails} for
         \textit{RESTful} web services
@@ -117,9 +120,17 @@
         \item Wrote \textit{Javascript}, \textit{HTML5}, and \textit{CSS3} for
         responsive web frontend utilizing Ruby templating to connect to Ruby 
         web service
+
+        \item Utilized \textit{Docker} for development and deployment of web
+        applications and dependencies
     \end{resumeinfo}
     \addvspace{1em}
-    \begin{resumeinfo}{NodeJS \& Python}{Austin, TX}{January, 2014 - March, 2014}
+    \begin{resumeinfo}{if-ML Project}{Austin, TX}{January, 2014 - March, 2014}
+        \item Wrote \textit{Python 2} application utilizing \textit{Flask} for
+        \textit{RESTful} endpoints and \textit{scikit-learn} for simplisitic
+        machine learning using binary linear regressions and clustering 
+        (k-means)
+
         \item Wrote \textit{NodeJS} application utilizing \textit{Express} for 
         \textit{RESTful} web services and \textit{Mocha} with \textit{Chai}
         for unit testing
@@ -127,12 +138,74 @@
         \item Wrote \textit{Javascript}, \textit{HTML5}, and \textit{CSS3} for
         responsive web frontend utilizing built-in templating engines provided
         through Express to connect to the web services
-
-        \item Wrote \textit{Python 2} application utilizing \textit{Flask} for
-        \textit{RESTful} endpoints and \textit{scikit-learn} for simplisitic
-        machine learning using binary linear regressions and clustering 
-        (k-means)
     \end{resumeinfo}
+}
+
+\addvspace{1em}
+\resumesection{true}{Apache Foundation}{
+    \addvspace{1em}
+    \begin{resumeinfo}{Apache Toree PPMC \& Maintainer}{Austin, TX}{January 2016 - Present}
+        \item Led release process for version 0.1.0
+        \item Provided guidance to new PPMC members on architecture and 
+        implementation decisions of new features
+        \item Architected and implemented custom plugin system using 
+        event-based dispatch
+        \item Managed pull requests towards project, providing guidance
+        and code alterations when necessary
+    \end{resumeinfo}
+    \addvspace{1em}
+}
+
+\addvspace{1em}
+\resumesection{true}{Mentorship}{
+    \addvspace{1em}
+    \begin{resumeinfo}{Google Summer of Code}{Scala Debugger}{April, 2017 - Present}
+        \item Provide technical guidance towards implementing an asynchronous
+        debugger in the Scala Debugger library
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{SuperCharger Fintech Accelerator}{Hong Kong}{February, 2017 - April, 2017}
+        \item Provided technical advice and guidance for startups in Hong Kong via Skype
+        sessions
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{New Hire Buddy Manager}{IBM}{May, 2016 - December, 2016}
+        \item Orchestrate events for new hires in IBM Emerging Internet Technologies
+        \item Provide 1-on-1 sessions for new hires to ask questions and get more
+        detailed help
+        \item Guide other mentors in ways they can interact with the new hires
+    \end{resumeinfo}
+    \addvspace{1em}
+}
+
+\addvspace{1em}
+\resumesection{true}{Talks}{
+    \addvspace{1em}
+    \begin{resumeinfo}{Scala Debugger}{ScalaSphere}{March, 2017}
+        \item Gave talk regarding personal project providing a library and
+        tooling to debug Scala applications
+
+        \item Participated in panel regarding the current state and future
+        of tooling in the Scala space
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{Spark Kernel}{Apache Spark Meetup (Bay Area)}{July, 2015}
+        \item Held talk regarding the architecture and design of the
+        \textit{Spark Kernel} project including its capabilities to enable
+        dynamic applications to interact with \textit{Apache Spark}
+
+        \item Demonstrated applications built on top of the \textit{Spark Kernel}
+        project that illustrated dynamic queries and RESTful functionality
+
+        \item \url{https://www.youtube.com/watch?v=2AX6g0tK-us}
+    \end{resumeinfo}
+    \addvspace{1em}
+    \begin{resumeinfo}{Docker}{IBM Virtual Conference}{May, 2014}
+        \item Demonstrated to an internal audience the ability to run graphical
+        applications (vim, IntelliJ, Firefox) through Docker, including 
+        remotely connecting to those applications using xpra
+    \end{resumeinfo}
+    \addvspace{1em}
 }
     
 % =============================================================================
